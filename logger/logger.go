@@ -90,7 +90,6 @@ func Init() {
 	}
 
 	lumberLogMachineID := &lumberjack.Logger{
-		Filename:   utils.AppSettings.AppParams.LogMachineHWID,
 		MaxSize:    utils.AppSettings.AppParams.LogMaxSize, // megabytes
 		MaxBackups: utils.AppSettings.AppParams.LogMaxBackups,
 		MaxAge:     utils.AppSettings.AppParams.LogMaxAge,   //days
