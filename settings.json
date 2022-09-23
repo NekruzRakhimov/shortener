@@ -1,0 +1,15 @@
+{
+  "app": {
+    "server_name": "localhost",
+    "port_run": ":1111",
+    "server_url": "127.0.0.1",
+    "log_file": "./logs/gin.log"
+  },
+  "postgres_params": {
+    "host": "db-postgresql-blr1-89823-do-user-10184514-0.b.db.ondigitalocean.com",
+    "port": "25060",
+    "user": "doadmin",
+    "password": "AVNS_apZSQ5I8ORCPOQA",
+    "database": "defaultdb"
+  }
+}
