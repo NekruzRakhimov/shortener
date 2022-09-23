@@ -1,8 +1,10 @@
 package routes
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
+	os "os"
 	"shortener/utils"
 )
 
@@ -18,7 +20,11 @@ func RunAllRoutes() {
 	initAllRoutes(r)
 
 	// Запуск сервера
-	_ = r.Run(utils.AppSettings.AppParams.PortRun)
+	port, exists := os.LookupEnv("PORT")
+	if !exists {
+		port = utils.AppSettings.AppParams.PortRun
+	}
+	_ = r.Run(fmt.Sprintf(":%s", port))
 }
 
 func initAllRoutes(r *gin.Engine) {

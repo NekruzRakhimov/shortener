@@ -4,6 +4,7 @@ go 1.17
 
 require (
 	github.com/gin-gonic/gin v1.8.1
+	github.com/gomodule/redigo v1.8.9
 	github.com/jinzhu/gorm v1.9.16
 	gopkg.in/natefinch/lumberjack.v2 v2.0.0
 )
