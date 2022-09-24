@@ -1,15 +1,15 @@
 {
   "app": {
-    "server_name": "localhost",
+    "server_name": "plavno.ly",
     "port_run": "1111",
-    "server_url": "127.0.0.1",
+    "server_url": "localhost",
     "log_file": "./logs/gin.log"
   },
   "postgres_params": {
-    "host": "db-postgresql-blr1-89823-do-user-10184514-0.b.db.ondigitalocean.com",
-    "port": "25060",
-    "user": "doadmin",
-    "password": "AVNS_apZSQ5I8ORCPOQA",
-    "database": "defaultdb"
+    "host": "ec2-3-229-161-70.compute-1.amazonaws.com",
+    "port": "5432",
+    "user": "xjrdmrqedtistl",
+    "password": "3427b823c209ffff9df95fb1ad0760dddbad27aa9be405c29bf6f51099d2ef0e",
+    "database": "d956ts9khnqdc4"
   }
 }
