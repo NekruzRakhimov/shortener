@@ -2,7 +2,7 @@
   "app": {
     "server_name": "plavno.ly",
     "port_run": "1111",
-    "server_url": "localhost",
+    "server_url": "plavno.ly",
     "log_file": "./logs/gin.log"
   },
   "postgres_params": {

@@ -27,11 +27,11 @@ func ShortenUrl(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"short_url": url.ShortUrl})
 }
 
-func ExpandUrl(c *gin.Context) {
+func GetUrlByShortUrl(c *gin.Context) {
 	var url models.Url
-	url.ShortUrl = c.Query("url")
+	url.FullUrl = c.Query("url")
 
-	if err := service.ExpandUrl(&url); err != nil {
+	if err := service.GetUrlByShortUrl(&url); err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			c.JSON(http.StatusInternalServerError, gin.H{"reason": "ваша ссылка не найдена"})
 		} else {

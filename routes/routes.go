@@ -32,7 +32,7 @@ func initAllRoutes(r *gin.Engine) {
 	r.GET("/", PingPong)
 
 	r.POST("/shorten", controller.ShortenUrl)
-	r.GET("/expand", controller.ExpandUrl)
+	r.GET("/expand", controller.GetUrlByShortUrl)
 }
 
 // PingPong Проверка
