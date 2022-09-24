@@ -9,7 +9,7 @@ import (
 	"shortener/utils"
 )
 
-var maxLength int = 10
+var maxLength = 10
 
 func ShortenUrl(url *models.Url) error {
 	err := repository.GetUrlByFullUrl(url)

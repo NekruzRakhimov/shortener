@@ -8,7 +8,6 @@ import (
 	"log"
 	"os"
 	"shortener/utils"
-	"time"
 )
 
 // SetLogger Установка Logger-а
@@ -104,22 +103,4 @@ func Init() {
 	Warn.SetOutput(lumberLogWarn)
 	Debug.SetOutput(lumberLogDebug)
 	MachineID.SetOutput(lumberLogMachineID)
-}
-
-// FormatLogs Форматирование логов
-func FormatLogs(r *gin.Engine) {
-	r.Use(gin.LoggerWithFormatter(func(param gin.LogFormatterParams) string {
-		// your custom format
-		return fmt.Sprintf("[GIN] %s - [%s] \"%s %s %s %d %s \"%s\" %s\n",
-			param.ClientIP,
-			param.TimeStamp.Format(time.RFC1123),
-			param.Method,
-			param.Path,
-			param.Request.Proto,
-			param.StatusCode,
-			param.Latency,
-			param.Request.UserAgent(),
-			param.ErrorMessage,
-		)
-	}))
 }

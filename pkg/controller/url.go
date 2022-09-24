@@ -24,19 +24,19 @@ import (
 // @Failure 500 {object} map[string]interface{}
 // @Router /shorten [post]
 func ShortenUrl(c *gin.Context) {
-	var url models.Url
-	if err := c.BindJSON(&url); err != nil {
+	var myUrl models.Url
+	if err := c.BindJSON(&myUrl); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"reason": "ошибка во время парсинга тело"})
 		logger.Error.Printf("[%s] Error is: %s", utils.FuncName(), err.Error())
 		return
 	}
 
-	if err := service.ShortenUrl(&url); err != nil {
+	if err := service.ShortenUrl(&myUrl); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"reason": "что-то пошло не так"})
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"short_url": url.ShortUrl})
+	c.JSON(http.StatusOK, gin.H{"short_url": myUrl.ShortUrl})
 }
 
 //GetUrlByShortUrl shortener godoc
