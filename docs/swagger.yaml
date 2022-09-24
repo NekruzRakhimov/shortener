@@ -9,7 +9,7 @@ definitions:
       short_url:
         type: string
     type: object
-host: localhost:1111
+host: https://shortenertj.herokuapp.com
 info:
   contact:
     email: nekruzrakhimov@icloud.com
