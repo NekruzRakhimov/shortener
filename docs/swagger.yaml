@@ -1,0 +1,103 @@
+basePath: /
+definitions:
+  models.Url:
+    properties:
+      full_url:
+        type: string
+      id:
+        type: integer
+      short_url:
+        type: string
+    type: object
+host: localhost:1111
+info:
+  contact:
+    email: nekruzrakhimov@icloud.com
+    name: API Support
+    url: http://www.swagger.io/support
+  description: Укоротитель ссылок.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Gin Swagger UrlShortener Api
+  version: "1.0"
+paths:
+  /expand:
+    get:
+      consumes:
+      - application/json
+      description: Роут для получения исходной ссылки из сокращенной. В ответе нужно
+        смотреть на поле full_url
+      parameters:
+      - description: short_url
+        in: query
+        name: url
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Url'
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties: true
+            type: object
+        "404":
+          description: Not Found
+          schema:
+            additionalProperties: true
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Shortening url
+      tags:
+      - url
+  /shorten:
+    post:
+      consumes:
+      - application/json
+      description: Роут для сокращения ссылок. Нужно заполнять только поле full_url.
+        И в ответе смотреть на short_url
+      parameters:
+      - description: full_url
+        in: body
+        name: url
+        required: true
+        schema:
+          $ref: '#/definitions/models.Url'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Url'
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties: true
+            type: object
+        "404":
+          description: Not Found
+          schema:
+            additionalProperties: true
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Shortening url
+      tags:
+      - url
+schemes:
+- http
+swagger: "2.0"

@@ -3,8 +3,11 @@ package routes
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
+	swaggerFiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 	"net/http"
 	"os"
+	"shortener/docs"
 	"shortener/pkg/controller"
 	"shortener/utils"
 )
@@ -30,6 +33,8 @@ func RunAllRoutes() {
 
 func initAllRoutes(r *gin.Engine) {
 	r.GET("/", PingPong)
+	docs.SwaggerInfo.BasePath = "/"
+	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	r.POST("/shorten", controller.ShortenUrl)
 	r.GET("/expand", controller.GetUrlByShortUrl)
