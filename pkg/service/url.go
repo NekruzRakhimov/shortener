@@ -14,7 +14,7 @@ var maxLength = 10
 func ShortenUrl(url *models.Url) error {
 	err := repository.GetUrlByFullUrl(url)
 	if !errors.Is(err, gorm.ErrRecordNotFound) {
-		return err
+		return nil
 	}
 
 	for {
