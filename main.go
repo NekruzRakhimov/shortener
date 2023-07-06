@@ -1,7 +1,7 @@
 package main
 
 import (
-	"shortener/db"
+	// "shortener/db"
 	"shortener/logger"
 	"shortener/routes"
 	"shortener/utils"
