@@ -26,6 +26,6 @@ func main() {
 	utils.ReadSettings()
 	utils.PutAdditionalSettings()
 	logger.Init()
-	db.StartDbConnection()
+	// db.StartDbConnection()
 	routes.RunAllRoutes()
 }
